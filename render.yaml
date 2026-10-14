@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: online-job-portal-backend
+    runtime: docker
+    dockerfilePath: backend/Dockerfile
+    dockerContext: backend
+    plan: free
+    envVars:
+      - key: PORT
+        value: 8080
+      - key: DB_URL
+        value: jdbc:mysql://gateway01.ap-northeast-1.prod.aws.tidbcloud.com:4000/jobportal?sslMode=VERIFY_IDENTITY&useSSL=true&requireSSL=true&serverTimezone=UTC
+      - key: DB_USER
+        value: 2xnUMpj84YDghCh.root
+      - key: DB_PASS
+        value: UHP8Ei1Uy6H0ERPI
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CORS_ORIGINS
+        value: "*"
